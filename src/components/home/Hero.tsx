@@ -35,7 +35,7 @@ const Hero = () => {
           playsInline
           onLoadedData={() => setIsVideoLoaded(true)}
         >
-          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
+          <source src="https://www.canva.com/design/DAGjOt1BAHY/67EiiPD4VMmq_VoewLkErg/watch?utm_content=DAGjOt1BAHY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h026e77c97c" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
