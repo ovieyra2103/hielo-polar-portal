@@ -1,23 +1,25 @@
 
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/home/Hero";
-import About from "@/components/home/About";
-import Products from "@/components/home/Products";
-import Services from "@/components/home/Services";
-import Coverage from "@/components/home/Coverage";
-import Contact from "@/components/home/Contact";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+import AboutSection from "@/components/home/AboutSection";
+import OurProcess from "@/components/home/OurProcess";
+import Testimonials from "@/components/home/Testimonials";
+import NewsSection from "@/components/home/NewsSection";
+import InstagramFeed from "@/components/home/InstagramFeed";
 import Cta from "@/components/home/Cta";
 
 const Index = () => {
   return (
     <Layout>
       <Hero />
-      <About />
-      <Products />
-      <Services />
-      <Coverage />
+      <FeaturedProducts />
+      <AboutSection />
+      <OurProcess />
+      <Testimonials />
+      <NewsSection />
+      <InstagramFeed />
       <Cta />
-      <Contact />
     </Layout>
   );
 };
