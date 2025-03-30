@@ -11,7 +11,7 @@ interface SectionTitleProps {
 export function SectionTitle({ 
   title, 
   subtitle, 
-  center = false, this 
+  center = false,
   className 
 }: SectionTitleProps) {
   return (
