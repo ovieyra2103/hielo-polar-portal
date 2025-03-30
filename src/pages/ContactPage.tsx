@@ -1,14 +1,11 @@
-
 import Layout from "@/components/layout/Layout";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
-
 const ContactPage = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero section */}
       <section className="relative py-20 bg-ice-700">
         <div className="container relative z-10 text-white">
@@ -29,10 +26,7 @@ const ContactPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact form */}
             <div>
-              <SectionTitle 
-                title="Envíanos un Mensaje" 
-                subtitle="Responderemos a la brevedad"
-              />
+              <SectionTitle title="Envíanos un Mensaje" subtitle="Responderemos a la brevedad" />
               
               <div className="bg-white p-8 rounded-lg shadow-lg">
                 <form className="space-y-6">
@@ -41,54 +35,32 @@ const ContactPage = () => {
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                         Nombre
                       </label>
-                      <Input
-                        id="name"
-                        placeholder="Tu nombre"
-                        className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500"
-                      />
+                      <Input id="name" placeholder="Tu nombre" className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500" />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                         Correo electrónico
                       </label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="tu@email.com"
-                        className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500"
-                      />
+                      <Input id="email" type="email" placeholder="tu@email.com" className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500" />
                     </div>
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                       Teléfono
                     </label>
-                    <Input
-                      id="phone"
-                      placeholder="Tu número de teléfono"
-                      className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500"
-                    />
+                    <Input id="phone" placeholder="Tu número de teléfono" className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500" />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
                       Asunto
                     </label>
-                    <Input
-                      id="subject"
-                      placeholder="¿En qué podemos ayudarte?"
-                      className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500"
-                    />
+                    <Input id="subject" placeholder="¿En qué podemos ayudarte?" className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500" />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                       Mensaje
                     </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Escribe tu mensaje aquí..."
-                      rows={5}
-                      className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500"
-                    />
+                    <Textarea id="message" placeholder="Escribe tu mensaje aquí..." rows={5} className="w-full border-ice-200 focus:border-ice-500 focus:ring-ice-500" />
                   </div>
                   <Button type="submit" className="w-full bg-ice-500 hover:bg-ice-600">
                     Enviar mensaje
@@ -99,10 +71,7 @@ const ContactPage = () => {
             
             {/* Contact information */}
             <div>
-              <SectionTitle 
-                title="Información de Contacto" 
-                subtitle="Estamos para servirte"
-              />
+              <SectionTitle title="Información de Contacto" subtitle="Estamos para servirte" />
               
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-lg shadow-md">
@@ -112,8 +81,9 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-ice-700 mb-1">Teléfono</h4>
-                      <p className="text-gray-600">+52 (123) 456-7890</p>
-                      <p className="text-gray-600">+52 (123) 456-7891</p>
+                      <p className="text-gray-600">+52 (417) 172-1455</p>
+                      <p className="text-gray-600">
+                    </p>
                     </div>
                   </div>
                 </div>
@@ -125,8 +95,8 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-ice-700 mb-1">Correo electrónico</h4>
-                      <p className="text-gray-600">info@hielopolardelcentro.com</p>
-                      <p className="text-gray-600">ventas@hielopolardelcentro.com</p>
+                      <p className="text-gray-600">contacto@hielolapolar.com</p>
+                      <p className="text-gray-600">ventas@hielolapolar.com</p>
                     </div>
                   </div>
                 </div>
@@ -138,7 +108,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-ice-700 mb-1">Ubicación</h4>
-                      <p className="text-gray-600">Guanajuato y Michoacán, México</p>
+                      <p className="text-gray-600">Prol. Ignacio Zaragoza 615, Col. Rancho Grande. Acámbaro. Gto</p>
                       <div className="mt-4">
                         <h5 className="font-medium text-ice-700 mb-2">Cobertura:</h5>
                         <div className="grid grid-cols-2 gap-2">
@@ -150,7 +120,7 @@ const ContactPage = () => {
                             </ul>
                           </div>
                           <div>
-                            <p className="font-medium">Michoacán:</p>
+                            <p className="font-medium">Michoacán</p>
                             <ul className="text-gray-600">
                               <li>Maravatío</li>
                               <li>Zinapécuaro</li>
@@ -173,12 +143,12 @@ const ContactPage = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
                         <div>
                           <h5 className="font-medium">Venta al público:</h5>
-                          <p className="text-gray-600">Lunes a Sábado: 6:00 am - 7:00 pm</p>
+                          <p className="text-gray-600">Lunes a Sábado: 6:00 am - 6:30 pm</p>
                           <p className="text-gray-600">Domingo: 6:00 am - 2:00 pm</p>
                         </div>
                         <div>
                           <h5 className="font-medium">Rutas de reparto:</h5>
-                          <p className="text-gray-600">Lunes a Sábado: 8:00 am - 6:00 pm</p>
+                          <p className="text-gray-600">Lunes a Domingo: 8:00 am - 6:00 pm</p>
                         </div>
                       </div>
                     </div>
@@ -203,8 +173,6 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default ContactPage;

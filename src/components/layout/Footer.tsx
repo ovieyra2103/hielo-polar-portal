@@ -1,20 +1,8 @@
-
 import { Link } from "react-router-dom";
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  Facebook, 
-  Instagram, 
-  Twitter,
-  ChevronRight
-} from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const Footer = () => {
-  return (
-    <footer className="bg-ice-800 text-white">
+  return <footer className="bg-ice-800 text-white">
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company info */}
@@ -83,17 +71,15 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin size={20} className="mr-3 shrink-0 mt-1 text-ice-400" />
-                <span className="text-ice-100">
-                  Guanajuato y Michoacán, México
-                </span>
+                <span className="text-ice-100">Prol. Ignacio Zaragoza 615, Acámbaro. Gto</span>
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="mr-3 shrink-0 text-ice-400" />
-                <span className="text-ice-100">+52 (123) 456-7890</span>
+                <span className="text-ice-100">+52 (417) 172-1455</span>
               </li>
               <li className="flex items-center">
                 <Mail size={20} className="mr-3 shrink-0 text-ice-400" />
-                <span className="text-ice-100">info@hielopolardelcentro.com</span>
+                <span className="text-ice-100">contacto@hielolapolar.com</span>
               </li>
               <li className="flex items-start">
                 <Clock size={20} className="mr-3 shrink-0 mt-1 text-ice-400" />
@@ -112,11 +98,7 @@ const Footer = () => {
               Recibe ofertas especiales y noticias directamente en tu correo electrónico.
             </p>
             <form className="space-y-3">
-              <input 
-                type="email" 
-                placeholder="Tu correo electrónico" 
-                className="w-full px-4 py-2 bg-ice-700 border border-ice-600 rounded-md text-white placeholder:text-ice-300 focus:outline-none focus:ring-2 focus:ring-ice-500"
-              />
+              <input type="email" placeholder="Tu correo electrónico" className="w-full px-4 py-2 bg-ice-700 border border-ice-600 rounded-md text-white placeholder:text-ice-300 focus:outline-none focus:ring-2 focus:ring-ice-500" />
               <Button className="w-full bg-white text-ice-800 hover:bg-ice-100">
                 Suscribirse
               </Button>
@@ -133,8 +115,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
