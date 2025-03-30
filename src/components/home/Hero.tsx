@@ -1,27 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Hero = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVideoLoaded(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="relative h-screen overflow-hidden">
       {/* Video background with overlay */}
       <div className="absolute inset-0 w-full h-full bg-ice-900">
-        {/* Fallback image before video loads or if error occurs */}
-        {(!isVideoLoaded || videoError) && (
+        {/* Fallback image if video fails to load */}
+        {videoError && (
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ 
               backgroundImage: "url('https://images.unsplash.com/photo-1500820242045-8a794ef5fd55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')",
             }}
@@ -29,22 +20,20 @@ const Hero = () => {
         )}
         
         {/* Video element */}
-        {!videoError && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-1000 ${
-              isVideoLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoadedData={() => setIsVideoLoaded(true)}
-            onError={() => setVideoError(true)}
-          >
-            <source src="/hielo-polar.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        )}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 object-cover w-full h-full"
+          onError={() => {
+            console.error("Error loading video");
+            setVideoError(true);
+          }}
+        >
+          <source src="/hielo-polar.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50" />
