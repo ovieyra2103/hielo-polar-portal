@@ -1,10 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
 const AboutSection = () => {
-  return (
-    <section className="py-24 bg-white">
+  return <section className="py-24 bg-white">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="order-2 lg:order-1">
@@ -27,18 +24,12 @@ const AboutSection = () => {
           </div>
           <div className="relative order-1 lg:order-2">
             <div className="relative z-10 rounded-lg overflow-hidden shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1517241938558-898c3afe02c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Fábrica de hielo"
-                className="w-full h-[500px] object-cover"
-              />
+              <img alt="Fábrica de hielo" className="w-full h-[500px] object-cover" src="/lovable-uploads/d913f418-6570-4c04-871c-cb785496b76f.jpg" />
             </div>
             <div className="absolute top-10 -left-10 w-full h-full border-4 border-ice-500 rounded-lg -z-10"></div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default AboutSection;
