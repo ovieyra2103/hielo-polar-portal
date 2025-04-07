@@ -1,25 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { 
-  Menu, 
-  X, 
-  Phone, 
-  Mail,
-  MapPin,
-  ChevronDown
-} from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -28,15 +17,12 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  return (
-    <header className="relative z-50">
+  return <header className="relative z-50">
       {/* Top info bar */}
       <div className="bg-ice-800 text-white py-3">
         <div className="container flex flex-col md:flex-row justify-between items-center text-sm">
@@ -61,8 +47,8 @@ const Navbar = () => {
       <nav className={`${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white/90 backdrop-blur-md py-5'} transition-all duration-300`}>
         <div className="container flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-ice-700">HIELO POLAR</span>
-            <span className="text-xs bg-ice-700 text-white px-2 py-1 ml-1 rounded-sm">DEL CENTRO</span>
+            <span className="text-ice-700 text-2xl font-bold">HIELO POLAR</span>
+            
           </Link>
           
           {/* Desktop navigation */}
@@ -80,19 +66,14 @@ const Navbar = () => {
           </div>
           
           {/* Mobile menu button */}
-          <button 
-            className="lg:hidden text-ice-700"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
+          <button className="lg:hidden text-ice-700" onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
       
       {/* Mobile navigation */}
-      {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-white z-50 pt-[4rem]">
+      {isMenuOpen && <div className="lg:hidden fixed inset-0 bg-white z-50 pt-[4rem]">
           <div className="container py-8 flex flex-col space-y-6">
             <MobileNavLink to="/" onClick={toggleMenu} active={location.pathname === "/"}>Inicio</MobileNavLink>
             <MobileNavLink to="/nosotros" onClick={toggleMenu} active={location.pathname === "/nosotros"}>Quiénes Somos</MobileNavLink>
@@ -123,51 +104,31 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        </div>
-      )}
-    </header>
-  );
+        </div>}
+    </header>;
 };
-
 interface NavLinkProps {
   to: string;
   children: React.ReactNode;
   active?: boolean;
 }
-
-const NavLink = ({ to, children, active }: NavLinkProps) => (
-  <Link 
-    to={to} 
-    className={`relative font-medium transition-colors hover:text-ice-600 ${
-      active ? 'text-ice-600' : 'text-ice-800'
-    }`}
-  >
+const NavLink = ({
+  to,
+  children,
+  active
+}: NavLinkProps) => <Link to={to} className={`relative font-medium transition-colors hover:text-ice-600 ${active ? 'text-ice-600' : 'text-ice-800'}`}>
     {children}
-    {active && (
-      <span className="absolute bottom-[-5px] left-0 w-full h-[3px] bg-ice-600"></span>
-    )}
-  </Link>
-);
-
+    {active && <span className="absolute bottom-[-5px] left-0 w-full h-[3px] bg-ice-600"></span>}
+  </Link>;
 interface MobileNavLinkProps extends NavLinkProps {
   onClick: () => void;
 }
-
-const MobileNavLink = ({ 
-  to, 
-  children, 
+const MobileNavLink = ({
+  to,
+  children,
   onClick,
   active
-}: MobileNavLinkProps) => (
-  <Link 
-    to={to} 
-    className={`text-2xl font-medium transition-colors hover:text-ice-600 ${
-      active ? 'text-ice-600' : 'text-ice-800'
-    }`}
-    onClick={onClick}
-  >
+}: MobileNavLinkProps) => <Link to={to} className={`text-2xl font-medium transition-colors hover:text-ice-600 ${active ? 'text-ice-600' : 'text-ice-800'}`} onClick={onClick}>
     {children}
-  </Link>
-);
-
+  </Link>;
 export default Navbar;
