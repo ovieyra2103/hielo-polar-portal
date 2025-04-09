@@ -79,7 +79,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-ice-700">Teléfono</h4>
-                  <p className="text-gray-600">+52 (123) 456-7890</p>
+                  <p className="text-gray-600">+52 (417) 172-1455</p>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-ice-700">Correo electrónico</h4>
-                  <p className="text-gray-600">info@hielopolardelcentro.com</p>
+                  <p className="text-gray-600">contacto@hielolapolar.com</p>
                 </div>
               </div>
             </div>

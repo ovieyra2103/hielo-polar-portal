@@ -32,9 +32,9 @@ const Navbar = () => {
               <Phone size={16} className="mr-2" />
               <span>+52 (417) 172-1455</span>
             </a>
-            <a href="mailto:info@hielopolardelcentro.com" className="flex items-center hover:text-ice-300 transition-colors">
+            <a href="mailto:contacto@hielolapolar.com" className="flex items-center hover:text-ice-300 transition-colors">
               <Mail size={16} className="mr-2" />
-              <span>info@hielopolardelcentro.com</span>
+              <span>contacto@hielolapolar.com</span>
             </a>
           </div>
           <div className="flex items-center">
@@ -94,9 +94,9 @@ const Navbar = () => {
                   <Phone size={18} className="mr-2" />
                   <span>+52 (417) 172-1455</span>
                 </a>
-                <a href="mailto:info@hielopolardelcentro.com" className="flex items-center text-gray-600 hover:text-ice-600">
+                <a href="mailto:contacto@hielolapolar.com" className="flex items-center text-gray-600 hover:text-ice-600">
                   <Mail size={18} className="mr-2" />
-                  <span>info@hielopolardelcentro.com</span>
+                  <span>contacto@hielolapolar.com</span>
                 </a>
                 <div className="flex items-center text-gray-600">
                   <MapPin size={18} className="mr-2" />
