@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
@@ -27,9 +28,9 @@ const Navbar = () => {
       <div className="bg-ice-800 text-white py-3">
         <div className="container flex flex-col md:flex-row justify-between items-center text-sm">
           <div className="flex items-center space-x-6 mb-2 md:mb-0">
-            <a href="tel:+521234567890" className="flex items-center hover:text-ice-300 transition-colors">
+            <a href="tel:+524171721455" className="flex items-center hover:text-ice-300 transition-colors">
               <Phone size={16} className="mr-2" />
-              <span>+52 (123) 456-7890</span>
+              <span>+52 (417) 172-1455</span>
             </a>
             <a href="mailto:info@hielopolardelcentro.com" className="flex items-center hover:text-ice-300 transition-colors">
               <Mail size={16} className="mr-2" />
@@ -89,9 +90,9 @@ const Navbar = () => {
             <div className="pt-8 border-t border-gray-200 mt-4">
               <h3 className="font-bold text-ice-800 mb-4">Contáctanos</h3>
               <div className="space-y-4">
-                <a href="tel:+521234567890" className="flex items-center text-gray-600 hover:text-ice-600">
+                <a href="tel:+524171721455" className="flex items-center text-gray-600 hover:text-ice-600">
                   <Phone size={18} className="mr-2" />
-                  <span>+52 (123) 456-7890</span>
+                  <span>+52 (417) 172-1455</span>
                 </a>
                 <a href="mailto:info@hielopolardelcentro.com" className="flex items-center text-gray-600 hover:text-ice-600">
                   <Mail size={18} className="mr-2" />
