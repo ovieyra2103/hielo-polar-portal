@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
@@ -39,7 +38,7 @@ const Navbar = () => {
           </div>
           <div className="flex items-center">
             <MapPin size={16} className="mr-2" />
-            <span>Guanajuato y Michoacán, México</span>
+            <span>Acámbaro, Gto.</span>
           </div>
         </div>
       </div>
