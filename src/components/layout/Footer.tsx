@@ -63,6 +63,12 @@ const Footer = () => {
                   Contacto
                 </Link>
               </li>
+              <li>
+                <Link to="/politica-de-privacidad" className="flex items-center text-ice-100 hover:text-white transition-colors">
+                  <ChevronRight size={16} className="mr-2" />
+                  Política de Privacidad
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -113,6 +119,9 @@ const Footer = () => {
         <div className="container text-center text-ice-300 text-sm">
           <p>
             © {new Date().getFullYear()} Hielo Polar del Centro. Todos los derechos reservados.
+            <Link to="/politica-de-privacidad" className="ml-2 hover:text-white">
+              Política de Privacidad
+            </Link>
           </p>
         </div>
       </div>
