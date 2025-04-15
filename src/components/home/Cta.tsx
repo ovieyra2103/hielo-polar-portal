@@ -35,7 +35,7 @@ const Cta = () => {
             </Button>
           </div>
           <div className="mt-6 text-sm text-ice-100">
-            <p>Al contactarnos por WhatsApp, aceptas nuestra <Link to="/politica-de-privacidad" className="underline hover:text-white">Política de Privacidad</Link></p>
+            <p>Al contactarnos por WhatsApp, aceptas nuestra <Link to="/politica-de-privacidad" className="underline hover:text-white">Política de Privacidad</Link> y entiendes tus derechos de solicitar la eliminación de tus datos.</p>
           </div>
         </div>
       </div>

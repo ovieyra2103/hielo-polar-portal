@@ -83,13 +83,36 @@ const PrivacyPolicyPage = () => {
               <li>Solicitar la portabilidad de sus datos</li>
             </ul>
 
-            <h3 className="text-xl font-medium text-ice-600 mb-3 mt-6">8. Cambios a esta Política</h3>
+            <h3 className="text-xl font-medium text-ice-600 mb-3 mt-6">8. Solicitud de Eliminación de Datos</h3>
+            <p className="mb-4">
+              Respetamos su derecho a solicitar la eliminación de sus datos personales. Si desea que eliminemos la información 
+              que tenemos sobre usted, puede solicitar la eliminación de sus datos de las siguientes maneras:
+            </p>
+            <ul className="list-disc pl-6 mb-4">
+              <li>Enviando un correo electrónico a <strong>contacto@hielolapolar.com</strong> con el asunto "Solicitud de eliminación de datos"</li>
+              <li>Llamando al número telefónico <strong>+52 (417) 172-1455</strong> y solicitando la eliminación de sus datos</li>
+              <li>Visitando nuestra oficina en Prol. Ignacio Zaragoza 615, Acámbaro, Guanajuato, y completando un formulario de solicitud</li>
+            </ul>
+            <p className="mb-4">
+              Una vez recibida su solicitud, procederemos a:
+            </p>
+            <ul className="list-disc pl-6 mb-4">
+              <li>Verificar su identidad para garantizar la seguridad de sus datos</li>
+              <li>Eliminar sus datos personales de nuestros sistemas dentro de un plazo de 30 días hábiles</li>
+              <li>Notificarle cuando se haya completado el proceso de eliminación</li>
+            </ul>
+            <p className="mb-4">
+              Es importante tener en cuenta que cierta información puede ser retenida para cumplir con obligaciones legales, 
+              resolver disputas y hacer cumplir nuestros acuerdos.
+            </p>
+
+            <h3 className="text-xl font-medium text-ice-600 mb-3 mt-6">9. Cambios a esta Política</h3>
             <p className="mb-4">
               Podemos actualizar esta política de privacidad periódicamente. Le notificaremos sobre cambios significativos 
               publicando la nueva política en nuestro sitio web o a través de nuestros canales de comunicación.
             </p>
 
-            <h3 className="text-xl font-medium text-ice-600 mb-3 mt-6">9. Contacto</h3>
+            <h3 className="text-xl font-medium text-ice-600 mb-3 mt-6">10. Contacto</h3>
             <p className="mb-4">
               Si tiene preguntas o inquietudes sobre nuestra política de privacidad o el manejo de sus datos personales, 
               contáctenos en:
