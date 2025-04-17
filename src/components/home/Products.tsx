@@ -15,7 +15,7 @@ const products = [
   {
     id: 2,
     title: "Cubos de Hielo",
-    description: "Ofrecemos Hielo Premier con cubos premium cristalinos ideales para bebidas, y Cubitos Tradicionales perfectos para consumo diario y eventos. Disponible en bolsas de 5 kg.",
+    description: "Ofrecemos Hielo Premier con cubos cristalinos ideales para bebidas, y Cubitos Tradicionales perfectos para consumo diario y eventos. Disponible en bolsas de 3 kg.",
     icon: Package,
   }
 ];
