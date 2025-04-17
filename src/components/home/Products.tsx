@@ -11,14 +11,14 @@ const products = [
     title: "Barras de Hielo Industrial",
     description: "Barra de hielo de 75 kg. Ideal para negocios, restaurantes, pescaderías y eventos. Servicio de molino sin costo adicional para moler las barras según la necesidad del cliente.",
     icon: Package2,
-    image: "/lovable-uploads/Hielo-Polar-Barra-Azul.png",
+    image: "/lovable-uploads/Hielo-Polar-Barra-Azul.jpg",
   },
   {
     id: 2,
     title: "Bolsa de Hielo 5 kg",
     description: "Bolsa de hielo ideal para refrigeración doméstica o comercial. Práctica, económica y con cubos resistentes que mantienen la temperatura por más tiempo.",
     icon: Package,
-    image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png",
+    image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg.jpg",
   },
   {
     id: 3,

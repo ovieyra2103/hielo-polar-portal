@@ -38,7 +38,7 @@ const ProductsPage = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
                 <img 
-                  src="/lovable-uploads/Hielo-Polar-Barra-Azul.png" 
+                  src="/lovable-uploads/Hielo-Polar-Barra-Azul.jpg" 
                   alt="Barras de hielo industrial"
                   className="w-full h-64 object-cover"
                 />
@@ -79,7 +79,7 @@ const ProductsPage = () => {
             {/* Cubed Ice */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
-                <img src="/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png" 
+                <img src="/lovable-uploads/Hielo-Polar-Bolsa-5kg.jpg" 
                   alt="Cubos de hielo"
                   className="w-full h-64 object-cover"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-ice-900/70 to-transparent flex items-end p-6">
@@ -97,7 +97,7 @@ const ProductsPage = () => {
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">1</span>
-                    <span><strong>Hielo Premier:</strong> Cubos de hielo premium, cristalinos, ideales para bebidas.</span>
+                    <span><strong>Hielo Premier:</strong> Cubos de hielo, cristalinos, ideales para bebidas.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">2</span>
