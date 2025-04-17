@@ -1,6 +1,5 @@
-
 import { SectionTitle } from "@/components/ui/section-title";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Package, Package2 } from "lucide-react";
@@ -11,13 +10,36 @@ const products = [
     title: "Barras de Hielo Industrial",
     description: "Barra de hielo de 75 kg. Ideal para negocios, restaurantes, pescaderías y eventos. Servicio de molino sin costo adicional para moler las barras según la necesidad del cliente.",
     icon: Package2,
+    image: "/lovable-uploads/Hielo-Polar-Barra-Azul.png",
   },
   {
     id: 2,
-    title: "Cubos de Hielo",
-    description: "Ofrecemos Hielo Premier con cubos cristalinos ideales para bebidas, y Cubitos Tradicionales perfectos para consumo diario y eventos. Disponible en bolsas de 3 kg.",
+    title: "Bolsa de Hielo 5 kg",
+    description: "Bolsa de hielo ideal para refrigeración doméstica o comercial. Práctica, económica y con cubos resistentes que mantienen la temperatura por más tiempo.",
     icon: Package,
-  }
+    image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png",
+  },
+  {
+    id: 3,
+    title: "Bolsa de Hielo Premier",
+    description: "Hielo cristalino de alta pureza, ideal para bebidas premium. Presentación en bolsa con diseño moderno. Disponible en puntos de venta selectos.",
+    icon: Package,
+    image: "/lovable-uploads/Hielo-Polar-Premier-v2.png",
+  },
+  {
+    id: 4,
+    title: "Bolsa de Hielo 3 kg",
+    description: "Bolsa de hielo tradicional en presentación de 3 kg. Perfecta para eventos pequeños, reuniones familiares o uso personal diario.",
+    icon: Package,
+    image: "/lovable-uploads/Hielo-Polar-Bolsa-3kg-min.png",
+  },
+  {
+    id: 5,
+    title: "Hielo Polar Ice & Water",
+    description: "Una presentación innovadora que combina agua purificada y hielo de alta calidad. Ideal para viajes, días de campo y uso en exteriores.",
+    icon: Package2,
+    image: "/lovable-uploads/Hielo-Polar-Ice-n-Water-v2.png",
+  },
 ];
 
 const Products = () => {
@@ -29,17 +51,15 @@ const Products = () => {
           subtitle="Calidad y pureza garantizada"
           center
         />
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {products.map((product) => (
             <Card key={product.id} className="bg-white border-ice-100 shadow-lg transition-transform hover:-translate-y-1">
               <CardHeader className="pb-2">
-              <img 
-              src="public/lovable-uploads/Hielo-Polar-Premier-v2.png" 
-              alt="Bolsa de Hielo Premier" 
-              className="w-full h-auto rounded-xl"
-            />
- 
+                <img 
+                  src={product.image}
+                  alt={product.title}
+                  className="w-full h-auto rounded-xl"
+                />
                 <div className="w-16 h-16 mb-4 rounded-full bg-ice-100 flex items-center justify-center text-ice-600">
                   <product.icon size={32} />
                 </div>
@@ -56,7 +76,7 @@ const Products = () => {
             </Card>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <Button asChild className="bg-ice-500 hover:bg-ice-600">
             <Link to="/productos">Ver todos los productos</Link>
