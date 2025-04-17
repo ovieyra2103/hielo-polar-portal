@@ -97,11 +97,11 @@ const ProductsPage = () => {
                 <ul className="space-y-3 text-gray-700">
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">1</span>
-                    <span><strong>Hielo Premier:</strong> Cubos de hielo, cristalinos, ideales para bebidas.</span>
+                    <span><strong>Hielo Premier:</strong> Cubos de hielo, cristalinos, ideales para tus bebidas.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">2</span>
-                    <span><strong>Cubitos Tradicionales:</strong> Perfectos para consumo diario y eventos.</span>
+                    <span><strong>Cubitos Tradicionales:</strong> Perfectos para consumo diario y cualquier evento.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">3</span>
@@ -123,7 +123,7 @@ const ProductsPage = () => {
               <div>
                 <h3 className="text-2xl font-bold text-ice-700 mb-4">Garantía de Calidad</h3>
                 <p className="text-gray-700 mb-4">
-                  En Hielo Polar del Centro, nos esforzamos por mantener los más altos estándares 
+                  En Hielo Polar, nos esforzamos por mantener los más altos estándares 
                   de calidad en cada uno de nuestros productos.
                 </p>
                 <ul className="space-y-2">
@@ -141,7 +141,7 @@ const ProductsPage = () => {
                   </li>
                   <li className="flex items-center">
                     <div className="h-2 w-2 rounded-full bg-ice-500 mr-2"></div>
-                    <span>Distribución en vehículos refrigerados</span>
+                    <span>Distribución estratégica</span>
                   </li>
                 </ul>
               </div>
@@ -152,9 +152,9 @@ const ProductsPage = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <h4 className="text-xl font-semibold mb-2">Solicita una muestra gratis</h4>
+                  <h4 className="text-xl font-semibold mb-2">Solicita más información</h4>
                   <p className="text-gray-600 mb-4">
-                    Para clientes mayoristas, ofrecemos muestras gratuitas de nuestros productos.
+                    Si quieres ser nuestro socio comercial.
                   </p>
                   <Button asChild className="bg-ice-500 hover:bg-ice-600">
                     <Link to="/contacto">Contactar ahora</Link>

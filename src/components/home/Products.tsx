@@ -25,21 +25,21 @@ const products = [
     title: "Bolsa de Hielo Premier",
     description: "Hielo cristalino de alta pureza, ideal para bebidas premium. Presentación en bolsa con diseño moderno. Disponible en puntos de venta selectos.",
     icon: Package,
-    image: "/lovable-uploads/Hielo-Polar-Premier-v2.png",
+    image: "/lovable-uploads/Hielo-Polar-Premier-v3.jpg",
   },
   {
     id: 4,
     title: "Bolsa de Hielo 3 kg",
     description: "Bolsa de hielo tradicional en presentación de 3 kg. Perfecta para eventos pequeños, reuniones familiares o uso personal diario.",
     icon: Package,
-    image: "/lovable-uploads/Hielo-Polar-Bolsa-3kg-min.png",
+    image: "/lovable-uploads/Hielo-Polar-Bolsa-3kg.jpg",
   },
   {
     id: 5,
     title: "Hielo Polar Ice & Water",
     description: "Una presentación innovadora que combina agua purificada y hielo de alta calidad. Ideal para viajes, días de campo y uso en exteriores.",
     icon: Package2,
-    image: "/lovable-uploads/Hielo-Polar-Ice-n-Water-v2.png",
+    image: "/lovable-uploads/Hielo-Polar-Ice-Proxima.jpg",
   },
 ];
 
