@@ -34,6 +34,12 @@ const Products = () => {
           {products.map((product) => (
             <Card key={product.id} className="bg-white border-ice-100 shadow-lg transition-transform hover:-translate-y-1">
               <CardHeader className="pb-2">
+              <img 
+              src="public/lovable-uploads/Hielo-Polar-Premier-v2.png" 
+              alt="Bolsa de Hielo Premier" 
+              className="w-full h-auto rounded-xl"
+            />
+ 
                 <div className="w-16 h-16 mb-4 rounded-full bg-ice-100 flex items-center justify-center text-ice-600">
                   <product.icon size={32} />
                 </div>
