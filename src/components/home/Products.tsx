@@ -55,11 +55,22 @@ const Products = () => {
           {products.map((product) => (
             <Card key={product.id} className="bg-white border-ice-100 shadow-lg transition-transform hover:-translate-y-1">
               <CardHeader className="pb-2">
-                <img 
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-auto rounded-xl"
-                />
+                <div
+                  data-lov-id="src/components/home/FeaturedProducts.tsx:28:14"
+                  data-lov-name="div"
+                  data-component-path="src/components/home/FeaturedProducts.tsx"
+                  data-component-line="28"
+                  data-component-file="FeaturedProducts.tsx"
+                  data-component-name="div"
+                  data-component-content='{"className":"h-64 overflow-hidden"}'
+                  className="h-64 overflow-hidden"
+                >
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
                 <div className="w-16 h-16 mb-4 rounded-full bg-ice-100 flex items-center justify-center text-ice-600">
                   <product.icon size={32} />
                 </div>
