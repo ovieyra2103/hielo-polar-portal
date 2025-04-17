@@ -38,7 +38,7 @@ const ProductsPage = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
                 <img 
-                  src="public/lovable-uploads/Hielo-Polar-Barra-Azul.png?auto=format&fit=crop&w=800&q=80" 
+                  src="/lovable-uploads/Hielo-Polar-Barra-Azul.png" 
                   alt="Barras de hielo industrial"
                   className="w-full h-64 object-cover"
                 />
@@ -79,7 +79,7 @@ const ProductsPage = () => {
             {/* Cubed Ice */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
-                <img src="public/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png?auto=format&fit=crop&w=800&q=80" 
+                <img src="/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png" 
                   alt="Cubos de hielo"
                   className="w-full h-64 object-cover"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-ice-900/70 to-transparent flex items-end p-6">
