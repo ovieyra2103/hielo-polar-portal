@@ -36,8 +36,8 @@ const products = [
   },
   {
     id: 5,
-    title: "Hielo Polar Ice & Water",
-    description: "Una presentación innovadora que combina agua purificada y hielo de alta calidad. Ideal para viajes, días de campo y uso en exteriores.",
+    title: "Algo nuevo está por derretir tus expectativas...",
+    description: "Una experiencia refrescante como nunca antes la habías visto. Innovación, practicidad y frescura, todo en una sola presentación. Prepárate para descubrir el nuevo integrante de la familia Hielo Polar del Centro. Muy pronto…. ❄️💧¿Estás listo para lo que viene?.",
     icon: Package2,
     image: "/lovable-uploads/Hielo-Polar-Ice-Proxima.jpg",
   },
