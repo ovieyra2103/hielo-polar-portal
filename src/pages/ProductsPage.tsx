@@ -38,7 +38,7 @@ const ProductsPage = () => {
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" 
+                  src="public/lovable-uploads/Hielo-Polar-Barra-Azul.png?auto=format&fit=crop&w=800&q=80" 
                   alt="Barras de hielo industrial"
                   className="w-full h-64 object-cover"
                 />
@@ -65,7 +65,7 @@ const ProductsPage = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="h-6 w-6 rounded-full bg-ice-100 flex items-center justify-center text-ice-600 text-sm mr-2 shrink-0">3</span>
-                    <span><strong>Servicio de molino:</strong> Sin costo adicional para moler las barras según la necesidad del cliente.</span>
+                    <span><strong>Servicio de molido:</strong> Sin costo adicional para moler las barras según la necesidad del cliente.</span>
                   </li>
                 </ul>
                 <div className="pt-4">
@@ -79,11 +79,9 @@ const ProductsPage = () => {
             {/* Cubed Ice */}
             <div className="bg-white rounded-lg overflow-hidden shadow-lg border border-ice-100">
               <div className="aspect-w-16 aspect-h-9 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?auto=format&fit=crop&w=800&q=80" 
+                <img src="public/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png?auto=format&fit=crop&w=800&q=80" 
                   alt="Cubos de hielo"
-                  className="w-full h-64 object-cover"
-                />
+                  className="w-full h-64 object-cover"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-ice-900/70 to-transparent flex items-end p-6">
                   <div className="text-white">
                     <h3 className="text-2xl font-bold mb-2">Cubos de Hielo</h3>
