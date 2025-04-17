@@ -1,32 +1,45 @@
+
 import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-const products = [{
-  id: 1,
-  name: "Barras de Hielo Industrial",
-  description: "Barra de hielo de 75 kg. Ideal para negocios, restaurantes y pescaderías.",
-  image: "https://images.unsplash.com/photo-1594016114271-9a255950c6bb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-}, {
-  id: 2,
-  name: "Hielo Premier",
-  description: "Cubos de hielo premium, cristalinos, ideales para bebidas. Presentación: Bolsa de 5 kg.",
-  image: "https://images.unsplash.com/photo-1578107265452-32f4ab4afb93?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-}, {
-  id: 3,
-  name: "Cubitos Tradicionales",
-  description: "Perfectos para consumo diario y eventos. Presentación: Bolsa de 5 kg.",
-  image: "https://images.unsplash.com/photo-1514997130083-2304083899de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-}];
+
+const products = [
+  {
+    id: 1,
+    name: "Barras de Hielo Industrial",
+    description: "Barra de hielo de 75 kg. Ideal para negocios, restaurantes y pescaderías.",
+    image: "/lovable-uploads/Hielo-Polar-Barra-Azul.png"
+  },
+  {
+    id: 2,
+    name: "Hielo Premier",
+    description: "Cubos de hielo premium, cristalinos, ideales para bebidas. Presentación: Bolsa de 5 kg.",
+    image: "/lovable-uploads/Hielo-Polar-Premier-v2.png"
+  },
+  {
+    id: 3,
+    name: "Cubitos Tradicionales",
+    description: "Perfectos para consumo diario y eventos. Presentación: Bolsa de 5 kg.",
+    image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png"
+  }
+];
+
 const FeaturedProducts = () => {
-  return <section className="py-24 bg-ice-50">
+  return (
+    <section className="py-24 bg-ice-50">
       <div className="container">
         <SectionTitle title="Nuestros Productos" subtitle="Calidad y pureza en cada producto" center />
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {products.map(product => <Card key={product.id} className="overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 border-none">
+          {products.map(product => (
+            <Card key={product.id} className="overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 border-none">
               <div className="h-64 overflow-hidden">
-                
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-ice-800 mb-2">{product.name}</h3>
@@ -35,7 +48,8 @@ const FeaturedProducts = () => {
                   <Link to="/productos">Ver Detalles</Link>
                 </Button>
               </CardContent>
-            </Card>)}
+            </Card>
+          ))}
         </div>
         
         <div className="mt-12 text-center">
@@ -44,6 +58,8 @@ const FeaturedProducts = () => {
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FeaturedProducts;
