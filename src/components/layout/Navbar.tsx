@@ -1,7 +1,9 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,8 +49,11 @@ const Navbar = () => {
       <nav className={`${isScrolled ? 'bg-white shadow-md py-3' : 'bg-white/90 backdrop-blur-md py-5'} transition-all duration-300`}>
         <div className="container flex justify-between items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-ice-700 text-2xl font-bold">HIELO POLAR</span>
-            
+            <img 
+              src="/lovable-uploads/logo-hielo-polar.png" 
+              alt="Hielo Polar del Centro Logo" 
+              className="h-12 mr-4" 
+            />
           </Link>
           
           {/* Desktop navigation */}
@@ -107,11 +112,13 @@ const Navbar = () => {
         </div>}
     </header>;
 };
+
 interface NavLinkProps {
   to: string;
   children: React.ReactNode;
   active?: boolean;
 }
+
 const NavLink = ({
   to,
   children,
@@ -120,9 +127,11 @@ const NavLink = ({
     {children}
     {active && <span className="absolute bottom-[-5px] left-0 w-full h-[3px] bg-ice-600"></span>}
   </Link>;
+
 interface MobileNavLinkProps extends NavLinkProps {
   onClick: () => void;
 }
+
 const MobileNavLink = ({
   to,
   children,
@@ -131,4 +140,6 @@ const MobileNavLink = ({
 }: MobileNavLinkProps) => <Link to={to} className={`text-2xl font-medium transition-colors hover:text-ice-600 ${active ? 'text-ice-600' : 'text-ice-800'}`} onClick={onClick}>
     {children}
   </Link>;
+
 export default Navbar;
+
