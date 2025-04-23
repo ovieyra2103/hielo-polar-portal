@@ -1,29 +1,28 @@
-
 import { SectionTitle } from "@/components/ui/section-title";
 
 const steps = [
   {
     id: 1,
     title: "Filtración",
-    description: "El agua se somete a un riguroso proceso de filtración para eliminar impurezas.",
+    description: "El agua pasa por un proceso de filtrado meticuloso que elimina sedimentos, partículas y contaminantes.",
     icon: "🌊",
   },
   {
     id: 2,
     title: "Purificación",
-    description: "El agua se purifica mediante ósmosis inversa y luz ultravioleta.",
+    description: "Mediante ósmosis inversa y luz ultravioleta, garantizamos un agua completamente purificada y libre de microorganismos.",
     icon: "💧",
   },
   {
     id: 3,
     title: "Congelación",
-    description: "El agua se congela en condiciones controladas de temperatura.",
+    description: "Congelamos el agua en condiciones controladas, asegurando un hielo transparente, sólido y duradero.",
     icon: "❄️",
   },
   {
     id: 4,
     title: "Empaque",
-    description: "El hielo se empaca en condiciones higiénicas para mantener su pureza.",
+    description: "Empacamos el hielo bajo estrictas normas de higiene para preservar su calidad y frescura hasta su destino final.",
     icon: "📦",
   },
 ];
@@ -34,14 +33,14 @@ const OurProcess = () => {
       <div className="container">
         <SectionTitle 
           title="Nuestro Proceso" 
-          subtitle="Cómo elaboramos el mejor hielo"
-          center
-          className="text-white"
+          subtitle="La excelencia detrás de cada cubo" 
+          center 
+          className="text-white" 
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
           {steps.map((step) => (
-            <div key={step.id} className="text-center">
+            <div key={step.id} className="text-center relative">
               <div className="w-24 h-24 bg-white text-ice-700 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">
                 {step.icon}
               </div>
@@ -57,6 +56,8 @@ const OurProcess = () => {
             </div>
           ))}
         </div>
+
+
         
         <div className="mt-20 text-center">
           <div className="max-w-3xl mx-auto p-8 border border-ice-600 rounded-lg">
