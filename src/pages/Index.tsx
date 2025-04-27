@@ -9,12 +9,13 @@ import Testimonials from "@/components/home/Testimonials";
 import NewsSection from "@/components/home/NewsSection";
 import InstagramFeed from "@/components/home/InstagramFeed";
 import Cta from "@/components/home/Cta";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
 
 const Index = () => {
   return (
     <Layout>
       <Hero />
-      <Products />
+      <FeaturedProducts />
       <AboutSection />
       <OurProcess />
       <IceCalculator />
