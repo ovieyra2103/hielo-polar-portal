@@ -4,6 +4,7 @@ import Hero from "@/components/home/Hero";
 import Products from "@/components/home/Products";
 import AboutSection from "@/components/home/AboutSection";
 import OurProcess from "@/components/home/OurProcess";
+import IceCalculator from "@/components/home/IceCalculator";
 import Testimonials from "@/components/home/Testimonials";
 import NewsSection from "@/components/home/NewsSection";
 import InstagramFeed from "@/components/home/InstagramFeed";
@@ -16,6 +17,7 @@ const Index = () => {
       <Products />
       <AboutSection />
       <OurProcess />
+      <IceCalculator />
       <Testimonials />
       <NewsSection />
       <InstagramFeed />
