@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail, MapPin, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, ChevronDown, Calculator } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
@@ -62,6 +62,12 @@ const Navbar = () => {
             <NavLink to="/nosotros" active={location.pathname === "/nosotros"}>Quiénes Somos</NavLink>
             <NavLink to="/productos" active={location.pathname === "/productos"}>Productos</NavLink>
             <NavLink to="/servicios" active={location.pathname === "/servicios"}>Servicios</NavLink>
+            <NavLink to="/calculadora" active={location.pathname === "/calculadora"}>
+              <span className="flex items-center">
+                <Calculator size={16} className="mr-1" />
+                Calculadora
+              </span>
+            </NavLink>
             <NavLink to="/contacto" active={location.pathname === "/contacto"}>Contacto</NavLink>
             <Button asChild className="bg-ice-600 hover:bg-ice-700 text-white">
               <Link to="/contacto">
@@ -84,6 +90,12 @@ const Navbar = () => {
             <MobileNavLink to="/nosotros" onClick={toggleMenu} active={location.pathname === "/nosotros"}>Quiénes Somos</MobileNavLink>
             <MobileNavLink to="/productos" onClick={toggleMenu} active={location.pathname === "/productos"}>Productos</MobileNavLink>
             <MobileNavLink to="/servicios" onClick={toggleMenu} active={location.pathname === "/servicios"}>Servicios</MobileNavLink>
+            <MobileNavLink to="/calculadora" onClick={toggleMenu} active={location.pathname === "/calculadora"}>
+              <span className="flex items-center">
+                <Calculator size={16} className="mr-1" />
+                Calculadora de Hielo
+              </span>
+            </MobileNavLink>
             <MobileNavLink to="/contacto" onClick={toggleMenu} active={location.pathname === "/contacto"}>Contacto</MobileNavLink>
             <Button asChild className="bg-ice-600 hover:bg-ice-700 text-white mt-4">
               <Link to="/contacto">
@@ -142,4 +154,3 @@ const MobileNavLink = ({
   </Link>;
 
 export default Navbar;
-

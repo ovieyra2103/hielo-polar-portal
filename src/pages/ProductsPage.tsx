@@ -3,61 +3,17 @@ import Layout from "@/components/layout/Layout";
 import { SectionTitle } from "@/components/ui/section-title";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { FileText, Package, Package2, Info } from "lucide-react";
+import { FileText, Package, Package2, Info, Calculator } from "lucide-react";
 import { toast } from "sonner";
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-const eventTypes = [
-  { id: "party", label: "Fiesta", kgPerPerson: 1 },
-  { id: "wedding", label: "Boda", kgPerPerson: 1.5 },
-  { id: "corporate", label: "Evento Corporativo", kgPerPerson: 0.8 },
-  { id: "cocktail", label: "Coctelería", kgPerPerson: 0.5 },
-  { id: "birthday", label: "Fiesta Infantil", kgPerPerson: 0.7 },
-  { id: "graduation", label: "Graduación", kgPerPerson: 1.2 },
-  { id: "pool", label: "Fiesta en Alberca", kgPerPerson: 1.8 },
-];
-
-const conservationTips = {
-  small: "Guarda el hielo en conservadores térmicos y mantenlos en sombra.",
-  medium: "Utiliza conservadores térmicos y cubre con mantas térmicas para mayor duración.",
-  large: "Para eventos grandes, programa entregas escalonadas o renta un refrigerador adicional."
-};
 
 const ProductsPage = () => {
-  const [guests, setGuests] = useState<string>("");
-  const [eventType, setEventType] = useState<string>("");
-  const [result, setResult] = useState<number | null>(null);
-  const [tip, setTip] = useState<string>("");
-
-  const calculateIce = () => {
-    const selectedEvent = eventTypes.find((type) => type.id === eventType);
-    if (!selectedEvent || !guests) return;
-
-    const guestsNumber = parseInt(guests);
-    const iceNeeded = guestsNumber * selectedEvent.kgPerPerson;
-    setResult(iceNeeded);
-    
-    // Set conservation tip based on amount
-    if (iceNeeded < 50) {
-      setTip(conservationTips.small);
-    } else if (iceNeeded < 150) {
-      setTip(conservationTips.medium);
-    } else {
-      setTip(conservationTips.large);
-    }
-  };
-
   const handleDownload = (productName: string) => {
     // Mostrar una notificación toast informando que las fichas técnicas estarán disponibles pronto
     toast.info(`La ficha técnica de ${productName} estará disponible próximamente`, {
       description: "Estamos actualizando nuestras fichas técnicas. ¡Gracias por su paciencia!",
       duration: 5000,
     });
-    
-    // No hacemos descarga para evitar archivos TXT temporales
   };
 
   return (
@@ -178,93 +134,35 @@ const ProductsPage = () => {
             </div>
           </div>
           
-          {/* Ice Calculator Section */}
-          <div className="mt-20">
-            <SectionTitle 
-              title="Calculadora de Hielo" 
-              subtitle="¿Cuánto hielo necesitas para tu evento?" 
-              center
-            />
-            
-            <div className="max-w-3xl mx-auto mt-12">
-              <Card className="border-ice-100 shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-center text-2xl text-ice-700">
-                    Calcula la cantidad ideal de hielo
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label htmlFor="guests" className="text-sm font-medium text-ice-600">
-                        Número de Invitados
-                      </label>
-                      <Input
-                        id="guests"
-                        type="number"
-                        placeholder="Ej: 100"
-                        value={guests}
-                        onChange={(e) => setGuests(e.target.value)}
-                        className="border-ice-200"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-ice-600">
-                        Tipo de Evento
-                      </label>
-                      <Select value={eventType} onValueChange={setEventType}>
-                        <SelectTrigger className="border-ice-200">
-                          <SelectValue placeholder="Selecciona el tipo de evento" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {eventTypes.map((type) => (
-                            <SelectItem key={type.id} value={type.id}>
-                              {type.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
+          {/* Calculator CTA Section */}
+          <div className="mt-20 bg-ice-50 p-8 rounded-lg">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold text-ice-700 mb-4">¿Cuánto hielo necesitas?</h3>
+                <p className="text-gray-700 mb-6">
+                  Utiliza nuestra calculadora especializada para determinar la cantidad exacta 
+                  de hielo que necesitarás en tu próximo evento. Evita quedarte corto o 
+                  desperdiciar producto con nuestra herramienta de cálculo.
+                </p>
+                <Button asChild className="bg-ice-500 hover:bg-ice-600 flex items-center">
+                  <Link to="/calculadora">
+                    <Calculator size={18} className="mr-2" />
+                    Usar Calculadora de Hielo
+                  </Link>
+                </Button>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-ice-100 rounded-full text-ice-600 mb-4">
+                    <Calculator size={32} />
                   </div>
-
-                  <Button 
-                    onClick={calculateIce}
-                    className="w-full bg-ice-600 hover:bg-ice-700 text-white"
-                    disabled={!guests || !eventType}
-                  >
-                    Calcular
-                  </Button>
-
-                  {result !== null && (
-                    <div className="mt-6 p-4 bg-ice-50 rounded-lg border border-ice-100">
-                      <p className="text-center text-ice-800 text-lg font-medium">
-                        Para tu evento necesitarás aproximadamente{" "}
-                        <span className="font-bold text-xl text-ice-700">
-                          {result} kg
-                        </span>{" "}
-                        de hielo
-                      </p>
-                      
-                      <div className="mt-4 flex items-start bg-white p-3 rounded-md border border-ice-100">
-                        <Info size={20} className="text-ice-600 mr-2 mt-1 shrink-0" />
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Recomendación: </span>
-                          {tip}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                  
-                  <div className="p-4 bg-ice-50 rounded-lg border border-ice-100">
-                    <h4 className="font-medium text-ice-700 mb-2">¿Sabías que...?</h4>
-                    <p className="text-sm text-gray-600">
-                      Para conservar mejor el hielo, mantenlo en un lugar fresco y seco, 
-                      alejado de la luz solar directa. Si necesitas mantenerlo durante varias horas, 
-                      utiliza conservadores de poliestireno o hieleras de alta calidad.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
+                  <h4 className="text-xl font-semibold mb-2">Planifica tu evento</h4>
+                  <p className="text-gray-600 mb-4">
+                    Diferentes eventos requieren distintas cantidades de hielo. Conoce 
+                    exactamente cuánto necesitarás para tu ocasión especial.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
           
