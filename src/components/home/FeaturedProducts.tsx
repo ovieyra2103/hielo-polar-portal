@@ -3,7 +3,7 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, FileText, Star } from "lucide-react";
+import { FileText, Star } from "lucide-react";
 import { toast } from "sonner";
 
 const products = [
@@ -35,20 +35,13 @@ const products = [
 
 const FeaturedProducts = () => {
   const handleDownload = (productName: string, fileUrl: string) => {
-    // Since we don't have the actual PDF files, let's show a toast notification instead
+    // Mostrar una notificación toast informando que las fichas técnicas estarán disponibles pronto
     toast.info(`La ficha técnica de ${productName} estará disponible próximamente`, {
       description: "Estamos actualizando nuestras fichas técnicas. ¡Gracias por su paciencia!",
       duration: 5000,
     });
     
-    // For demonstration, we'll create and download a simple text file
-    const element = document.createElement("a");
-    const file = new Blob([`Ficha técnica para ${productName}\n\nDetalles del producto estarán disponibles próximamente.`], {type: 'text/plain'});
-    element.href = URL.createObjectURL(file);
-    element.download = `${productName.toLowerCase().replace(/ /g, '-')}-ficha-tecnica.txt`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    // No hacemos descarga para evitar archivos TXT temporales
   };
 
   return (
