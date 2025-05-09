@@ -3,7 +3,8 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Download, Star } from "lucide-react";
+import { Download, FileText, Star } from "lucide-react";
+import { toast } from "sonner";
 
 const products = [
   {
@@ -12,7 +13,7 @@ const products = [
     description: "Barra de hielo de 75 kg. Ideal para negocios, restaurantes y pescaderías.",
     image: "/lovable-uploads/Hielo-Polar-Barra-Azul.png",
     featured: true,
-    sheet: "/fichas-tecnicas/barra-hielo-industrial.pdf"
+    sheet: "/lovable-uploads/barra-hielo-industrial.pdf"
   },
   {
     id: 2,
@@ -20,7 +21,7 @@ const products = [
     description: "Cubos de hielo premium, cristalinos, ideales para bebidas. Presentación: Bolsa de 5 kg.",
     image: "/lovable-uploads/Hielo-Polar-Premier-v2.png",
     featured: true,
-    sheet: "/fichas-tecnicas/hielo-premier.pdf"
+    sheet: "/lovable-uploads/hielo-premier.pdf"
   },
   {
     id: 3,
@@ -28,11 +29,28 @@ const products = [
     description: "Perfectos para consumo diario y eventos. Presentación: Bolsa de 5 kg.",
     image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png",
     featured: false,
-    sheet: "/fichas-tecnicas/cubitos-tradicionales.pdf"
+    sheet: "/lovable-uploads/cubitos-tradicionales.pdf"
   }
 ];
 
 const FeaturedProducts = () => {
+  const handleDownload = (productName: string, fileUrl: string) => {
+    // Since we don't have the actual PDF files, let's show a toast notification instead
+    toast.info(`La ficha técnica de ${productName} estará disponible próximamente`, {
+      description: "Estamos actualizando nuestras fichas técnicas. ¡Gracias por su paciencia!",
+      duration: 5000,
+    });
+    
+    // For demonstration, we'll create and download a simple text file
+    const element = document.createElement("a");
+    const file = new Blob([`Ficha técnica para ${productName}\n\nDetalles del producto estarán disponibles próximamente.`], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = `${productName.toLowerCase().replace(/ /g, '-')}-ficha-tecnica.txt`;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   return (
     <section className="py-24 bg-ice-50">
       <div className="container">
@@ -63,11 +81,12 @@ const FeaturedProducts = () => {
                   <Button asChild variant="outline" className="border-ice-600 text-ice-600 hover:bg-ice-600 hover:text-white">
                     <Link to="/productos">Ver Detalles</Link>
                   </Button>
-                  <Button asChild className="bg-ice-600 hover:bg-ice-700 text-white flex items-center">
-                    <a href={product.sheet} target="_blank" rel="noopener noreferrer">
-                      <Download size={16} className="mr-1" />
-                      Ficha Técnica
-                    </a>
+                  <Button 
+                    className="bg-ice-600 hover:bg-ice-700 text-white flex items-center"
+                    onClick={() => handleDownload(product.name, product.sheet)}
+                  >
+                    <FileText size={16} className="mr-1" />
+                    Ficha Técnica
                   </Button>
                 </div>
               </CardContent>

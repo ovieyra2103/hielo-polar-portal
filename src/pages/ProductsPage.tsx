@@ -1,12 +1,30 @@
 
 import Layout from "@/components/layout/Layout";
 import { SectionTitle } from "@/components/ui/section-title";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Package, Package2 } from "lucide-react";
+import { FileText, Package, Package2 } from "lucide-react";
+import { toast } from "sonner";
 
 const ProductsPage = () => {
+  const handleDownload = (productName: string) => {
+    // Since we don't have the actual PDF files, let's show a toast notification instead
+    toast.info(`La ficha técnica de ${productName} estará disponible próximamente`, {
+      description: "Estamos actualizando nuestras fichas técnicas. ¡Gracias por su paciencia!",
+      duration: 5000,
+    });
+    
+    // For demonstration, we'll create and download a simple text file
+    const element = document.createElement("a");
+    const file = new Blob([`Ficha técnica para ${productName}\n\nDetalles del producto estarán disponibles próximamente.`], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = `${productName.toLowerCase().replace(/ /g, '-')}-ficha-tecnica.txt`;
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
+
   return (
     <Layout>
       {/* Hero section */}
@@ -69,8 +87,12 @@ const ProductsPage = () => {
                   </li>
                 </ul>
                 <div className="pt-4">
-                  <Button asChild className="w-full bg-ice-500 hover:bg-ice-600">
-                    <Link to="/contacto">Solicitar información</Link>
+                  <Button 
+                    className="w-full bg-ice-500 hover:bg-ice-600 flex items-center justify-center"
+                    onClick={() => handleDownload("Barras de Hielo Industrial")}
+                  >
+                    <FileText size={16} className="mr-1" />
+                    Descargar Ficha Técnica
                   </Button>
                 </div>
               </div>
@@ -109,8 +131,12 @@ const ProductsPage = () => {
                   </li>
                 </ul>
                 <div className="pt-4">
-                  <Button asChild className="w-full bg-ice-500 hover:bg-ice-600">
-                    <Link to="/contacto">Solicitar información</Link>
+                  <Button 
+                    className="w-full bg-ice-500 hover:bg-ice-600 flex items-center justify-center"
+                    onClick={() => handleDownload("Cubos de Hielo")}
+                  >
+                    <FileText size={16} className="mr-1" />
+                    Descargar Ficha Técnica
                   </Button>
                 </div>
               </div>
