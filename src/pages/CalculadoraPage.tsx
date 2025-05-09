@@ -29,6 +29,8 @@ const CalculadoraPage = () => {
   const [eventType, setEventType] = useState<string>("");
   const [result, setResult] = useState<number | null>(null);
   const [tip, setTip] = useState<string>("");
+  const [bags, setBags] = useState<number>(0);
+  const [iceBars, setIceBars] = useState<number>(0);
 
   const calculateIce = () => {
     const selectedEvent = eventTypes.find((type) => type.id === eventType);
@@ -36,7 +38,16 @@ const CalculadoraPage = () => {
 
     const guestsNumber = parseInt(guests);
     const iceNeeded = guestsNumber * selectedEvent.kgPerPerson;
+    
+    // Calculate number of 5kg bags
+    const calculatedBags = Math.ceil(iceNeeded / 5);
+    
+    // Calculate number of ice bars (1 bar per 20 guests for cooling bottles)
+    const calculatedBars = Math.ceil(guestsNumber / 20);
+    
     setResult(iceNeeded);
+    setBags(calculatedBags);
+    setIceBars(calculatedBars);
     
     // Set conservation tip based on amount
     if (iceNeeded < 50) {
@@ -122,9 +133,13 @@ const CalculadoraPage = () => {
                     <p className="text-center text-ice-800 text-lg font-medium">
                       Para tu evento necesitarás aproximadamente{" "}
                       <span className="font-bold text-2xl text-ice-700">
-                        {result} kg
-                      </span>{" "}
-                      de hielo
+                        {bags} bolsas de Hielo Polar de 5 Kg
+                      </span>
+                      {iceBars > 0 && (
+                        <> y también, <span className="font-bold text-2xl text-ice-700">
+                          {iceBars} {iceBars === 1 ? "barra" : "barras"} de hielo
+                        </span> para enfriar botellas</>
+                      )}
                     </p>
                     
                     <div className="mt-4 flex items-start bg-white p-4 rounded-md border border-ice-100">
