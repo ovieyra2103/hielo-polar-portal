@@ -1,7 +1,6 @@
 
 import Layout from "@/components/layout/Layout";
 import Hero from "@/components/home/Hero";
-import Products from "@/components/home/Products";
 import AboutSection from "@/components/home/AboutSection";
 import OurProcess from "@/components/home/OurProcess";
 import IceCalculator from "@/components/home/IceCalculator";

@@ -5,18 +5,29 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionTitle } from "@/components/ui/section-title";
+import { Info } from "lucide-react";
 
 const eventTypes = [
   { id: "party", label: "Fiesta", kgPerPerson: 1 },
   { id: "wedding", label: "Boda", kgPerPerson: 1.5 },
   { id: "corporate", label: "Evento Corporativo", kgPerPerson: 0.8 },
   { id: "cocktail", label: "Coctelería", kgPerPerson: 0.5 },
+  { id: "birthday", label: "Fiesta Infantil", kgPerPerson: 0.7 },
+  { id: "graduation", label: "Graduación", kgPerPerson: 1.2 },
+  { id: "pool", label: "Fiesta en Alberca", kgPerPerson: 1.8 },
 ];
+
+const conservationTips = {
+  small: "Guarda el hielo en conservadores térmicos y mantenlos en sombra.",
+  medium: "Utiliza conservadores térmicos y cubre con mantas térmicas para mayor duración.",
+  large: "Para eventos grandes, programa entregas escalonadas o renta un refrigerador adicional."
+};
 
 const IceCalculator = () => {
   const [guests, setGuests] = useState<string>("");
   const [eventType, setEventType] = useState<string>("");
   const [result, setResult] = useState<number | null>(null);
+  const [tip, setTip] = useState<string>("");
 
   const calculateIce = () => {
     const selectedEvent = eventTypes.find((type) => type.id === eventType);
@@ -25,6 +36,15 @@ const IceCalculator = () => {
     const guestsNumber = parseInt(guests);
     const iceNeeded = guestsNumber * selectedEvent.kgPerPerson;
     setResult(iceNeeded);
+    
+    // Set conservation tip based on amount
+    if (iceNeeded < 50) {
+      setTip(conservationTips.small);
+    } else if (iceNeeded < 150) {
+      setTip(conservationTips.medium);
+    } else {
+      setTip(conservationTips.large);
+    }
   };
 
   return (
@@ -87,15 +107,32 @@ const IceCalculator = () => {
 
               {result !== null && (
                 <div className="mt-6 p-4 bg-ice-50 rounded-lg border border-ice-100">
-                  <p className="text-center text-ice-800">
+                  <p className="text-center text-ice-800 text-lg font-medium">
                     Para tu evento necesitarás aproximadamente{" "}
-                    <span className="font-bold text-ice-700">
+                    <span className="font-bold text-xl text-ice-700">
                       {result} kg
                     </span>{" "}
                     de hielo
                   </p>
+                  
+                  <div className="mt-4 flex items-start bg-white p-3 rounded-md border border-ice-100">
+                    <Info size={20} className="text-ice-600 mr-2 mt-1 shrink-0" />
+                    <p className="text-sm text-gray-600">
+                      <span className="font-medium">Recomendación: </span>
+                      {tip}
+                    </p>
+                  </div>
                 </div>
               )}
+              
+              <div className="p-4 bg-ice-50 rounded-lg border border-ice-100">
+                <h4 className="font-medium text-ice-700 mb-2">¿Sabías que...?</h4>
+                <p className="text-sm text-gray-600">
+                  Para conservar mejor el hielo, mantenlo en un lugar fresco y seco, 
+                  alejado de la luz solar directa. Si necesitas mantenerlo durante varias horas, 
+                  utiliza conservadores de poliestireno o hieleras de alta calidad.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
