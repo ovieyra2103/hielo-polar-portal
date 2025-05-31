@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,14 +7,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company info */}
           <div>
-            <div className="flex items-center mb-6">
-              <span className="text-2xl font-bold text-white">HIELO POLAR</span>
-              <span className="text-xs bg-white text-ice-800 px-2 py-1 ml-1 rounded-sm">DEL CENTRO</span>
-            </div>
+            
             <p className="text-ice-100 mb-6">
-              Empresa líder en la producción y distribución de hielo en Guanajuato y Michoacán, 
-              especializada en barras de hielo industrial y bolsas de cubos de hielo.
-            </p>
+
+
+
+
+
+Empresa líder en la producción y distribución de hielo en Guanajuato y Michoacán, especializada en barras de hielo industrial y bolsas de cubos de hielo.</p>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 rounded-full bg-ice-700 flex items-center justify-center hover:bg-ice-600 transition-colors">
                 <Facebook size={18} />
