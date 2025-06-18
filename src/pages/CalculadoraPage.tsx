@@ -9,19 +9,19 @@ import { SectionTitle } from "@/components/ui/section-title";
 import { Info, Calculator } from "lucide-react";
 
 const eventTypes = [
-  { id: "party", label: "Fiesta", kgPerPerson: 1 },
-  { id: "wedding", label: "Boda", kgPerPerson: 1.5 },
-  { id: "corporate", label: "Evento Corporativo", kgPerPerson: 0.8 },
-  { id: "cocktail", label: "Coctelería", kgPerPerson: 0.5 },
-  { id: "birthday", label: "Fiesta Infantil", kgPerPerson: 0.7 },
-  { id: "graduation", label: "Graduación", kgPerPerson: 1.2 },
-  { id: "pool", label: "Fiesta en Alberca", kgPerPerson: 1.8 },
+  { id: "party", label: "Fiesta", kgPerPerson: 0.5 },
+  { id: "wedding", label: "Boda", kgPerPerson: 0.8 },
+  { id: "corporate", label: "Evento Corporativo", kgPerPerson: 0.4 },
+  { id: "cocktail", label: "Coctelería", kgPerPerson: 0.3 },
+  { id: "birthday", label: "Fiesta Infantil", kgPerPerson: 0.3 },
+  { id: "graduation", label: "Graduación", kgPerPerson: 0.6 },
+  { id: "pool", label: "Fiesta en Alberca", kgPerPerson: 1.0 },
 ];
 
 const conservationTips = {
   small: "Guarda el hielo en conservadores térmicos y mantenlos en sombra.",
   medium: "Utiliza conservadores térmicos y cubre con mantas térmicas para mayor duración.",
-  large: "Para eventos grandes, programa entregas escalonadas o renta un refrigerador adicional."
+  large: "Para eventos grandes, programa entregas escalonadas or renta un refrigerador adicional."
 };
 
 const CalculadoraPage = () => {
@@ -39,20 +39,21 @@ const CalculadoraPage = () => {
     const guestsNumber = parseInt(guests);
     const iceNeeded = guestsNumber * selectedEvent.kgPerPerson;
     
-    // Calculate number of 5kg bags
+    // Calculate number of 5kg bags - this is the main ice needed
     const calculatedBags = Math.ceil(iceNeeded / 5);
     
-    // Calculate number of ice bars (1 bar per 20 guests for cooling bottles)
-    const calculatedBars = Math.ceil(guestsNumber / 20);
+    // Calculate ice bars only for cooling bottles (optional, not additional to bags)
+    // 1 bar per 40-50 guests for bottle cooling service
+    const calculatedBars = Math.ceil(guestsNumber / 45);
     
     setResult(iceNeeded);
     setBags(calculatedBags);
     setIceBars(calculatedBars);
     
     // Set conservation tip based on amount
-    if (iceNeeded < 50) {
+    if (iceNeeded < 25) {
       setTip(conservationTips.small);
-    } else if (iceNeeded < 150) {
+    } else if (iceNeeded < 75) {
       setTip(conservationTips.medium);
     } else {
       setTip(conservationTips.large);
@@ -130,17 +131,25 @@ const CalculadoraPage = () => {
 
                 {result !== null && (
                   <div className="mt-6 p-6 bg-ice-50 rounded-lg border border-ice-100">
-                    <p className="text-center text-ice-800 text-lg font-medium">
+                    <p className="text-center text-ice-800 text-lg font-medium mb-4">
                       Para tu evento necesitarás aproximadamente{" "}
                       <span className="font-bold text-2xl text-ice-700">
                         {bags} bolsas de Hielo Polar de 5 Kg
                       </span>
-                      {iceBars > 0 && (
-                        <> y también, <span className="font-bold text-2xl text-ice-700">
-                          {iceBars} {iceBars === 1 ? "barra" : "barras"} de hielo
-                        </span> para enfriar botellas</>
-                      )}
+                      <br />
+                      <span className="text-sm text-gray-600">
+                        (Total: {result} kg de hielo)
+                      </span>
                     </p>
+                    
+                    {iceBars > 0 && (
+                      <div className="mt-3 p-3 bg-blue-50 rounded-md border border-blue-100">
+                        <p className="text-sm text-blue-800">
+                          <span className="font-medium">Servicio adicional:</span> Si necesitas enfriar botellas, 
+                          considera {iceBars} {iceBars === 1 ? "barra" : "barras"} de hielo de 75kg.
+                        </p>
+                      </div>
+                    )}
                     
                     <div className="mt-4 flex items-start bg-white p-4 rounded-md border border-ice-100">
                       <Info size={20} className="text-ice-600 mr-2 mt-1 shrink-0" />
