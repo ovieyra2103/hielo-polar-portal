@@ -24,7 +24,7 @@ const products = [{
   id: 3,
   name: "Cubitos Tradicionales",
   description: "Perfectos para consumo diario y eventos. Presentación: Bolsa de 5 kg.",
-  image: "/lovable-uploads/Hielo-Polar-Bolsa-5kg-min.png",
+  image: "/lovable-uploads/b49d0fd7-91e1-4d0d-9234-c10f6931662a.png",
   featured: false,
   sheet: "/lovable-uploads/cubitos-tradicionales.pdf"
 }];
