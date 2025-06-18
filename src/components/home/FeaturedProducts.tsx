@@ -49,7 +49,7 @@ const FeaturedProducts = () => {
                   </span>
                 </div>}
               <div className="h-64 overflow-hidden">
-                <img src={product.image} alt={product.name} className="w-full h-full transition-transform hover:scale-105 duration-500 object-fill" />
+                
               </div>
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold text-ice-800 mb-2">{product.name}</h3>
