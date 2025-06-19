@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionTitle } from "@/components/ui/section-title";
-import { Info } from "lucide-react";
+import { Info, Beer } from "lucide-react";
 
 const eventTypes = [
   { id: "party", label: "Fiesta", kgPerPerson: 0.5 },
@@ -17,6 +17,12 @@ const eventTypes = [
   { id: "pool", label: "Fiesta en Alberca", kgPerPerson: 1.0 },
 ];
 
+const beerTypes = [
+  { id: "small", label: "24 cervezas ampolleta (255ml)", kgPerCarton: 4.375, cartonsPerBar: 15 },
+  { id: "regular", label: "24 cervezas regulares (355ml)", kgPerCarton: 7, cartonsPerBar: 9 },
+  { id: "family", label: "12 cervezas familiares", kgPerCarton: 8, cartonsPerBar: 8 },
+];
+
 const conservationTips = {
   small: "Guarda el hielo en conservadores térmicos y mantenlos en sombra.",
   medium: "Utiliza conservadores térmicos y cubre con mantas térmicas para mayor duración.",
@@ -26,10 +32,13 @@ const conservationTips = {
 const IceCalculator = () => {
   const [guests, setGuests] = useState<string>("");
   const [eventType, setEventType] = useState<string>("");
+  const [beerCartons, setBeerCartons] = useState<string>("");
+  const [beerType, setBeerType] = useState<string>("");
   const [result, setResult] = useState<number | null>(null);
   const [tip, setTip] = useState<string>("");
   const [bags, setBags] = useState<number>(0);
   const [iceBars, setIceBars] = useState<number>(0);
+  const [beerIceBars, setBeerIceBars] = useState<number>(0);
 
   const calculateIce = () => {
     const selectedEvent = eventTypes.find((type) => type.id === eventType);
@@ -41,13 +50,23 @@ const IceCalculator = () => {
     // Calculate number of 5kg bags - this is the main ice needed
     const calculatedBags = Math.ceil(iceNeeded / 5);
     
-    // Calculate ice bars only for cooling bottles (optional, not additional to bags)
-    // 1 bar per 40-50 guests for bottle cooling service
+    // Calculate ice bars for general cooling (1 bar per 40-50 guests)
     const calculatedBars = Math.ceil(guestsNumber / 45);
+    
+    // Calculate ice bars needed for beer if specified
+    let calculatedBeerBars = 0;
+    if (beerCartons && beerType) {
+      const selectedBeer = beerTypes.find((beer) => beer.id === beerType);
+      if (selectedBeer) {
+        const cartonsNumber = parseInt(beerCartons);
+        calculatedBeerBars = Math.ceil(cartonsNumber / selectedBeer.cartonsPerBar);
+      }
+    }
     
     setResult(iceNeeded);
     setBags(calculatedBags);
     setIceBars(calculatedBars);
+    setBeerIceBars(calculatedBeerBars);
     
     // Set conservation tip based on amount
     if (iceNeeded < 25) {
@@ -109,6 +128,46 @@ const IceCalculator = () => {
                 </div>
               </div>
 
+              {/* Sección adicional para cervezas */}
+              <div className="border-t pt-6">
+                <h4 className="font-medium text-ice-700 mb-4 flex items-center">
+                  <Beer className="mr-2" size={20} />
+                  Cálculo adicional para cervezas (opcional)
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="beerCartons" className="text-sm font-medium text-ice-600">
+                      Número de Cartones de Cerveza
+                    </label>
+                    <Input
+                      id="beerCartons"
+                      type="number"
+                      placeholder="Ej: 5"
+                      value={beerCartons}
+                      onChange={(e) => setBeerCartons(e.target.value)}
+                      className="border-ice-200"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-ice-600">
+                      Tipo de Cerveza
+                    </label>
+                    <Select value={beerType} onValueChange={setBeerType}>
+                      <SelectTrigger className="border-ice-200">
+                        <SelectValue placeholder="Selecciona el tipo de cerveza" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {beerTypes.map((beer) => (
+                          <SelectItem key={beer.id} value={beer.id}>
+                            {beer.label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
               <Button 
                 onClick={calculateIce}
                 className="w-full bg-ice-600 hover:bg-ice-700 text-white"
@@ -133,8 +192,17 @@ const IceCalculator = () => {
                   {iceBars > 0 && (
                     <div className="mt-3 p-3 bg-blue-50 rounded-md border border-blue-100">
                       <p className="text-sm text-blue-800">
-                        <span className="font-medium">Servicio adicional:</span> Si necesitas enfriar botellas, 
-                        considera {iceBars} {iceBars === 1 ? "barra" : "barras"} de hielo de 75kg.
+                        <span className="font-medium">Servicio general:</span> Para enfriamiento general, 
+                        considera {iceBars} {iceBars === 1 ? "barra" : "barras"} de hielo de 66kg.
+                      </p>
+                    </div>
+                  )}
+
+                  {beerIceBars > 0 && (
+                    <div className="mt-3 p-3 bg-amber-50 rounded-md border border-amber-100">
+                      <p className="text-sm text-amber-800">
+                        <span className="font-medium">Para cervezas:</span> Necesitarás {beerIceBars} {beerIceBars === 1 ? "barra" : "barras"} 
+                        de hielo de 66kg adicionales para mantener las cervezas frías.
                       </p>
                     </div>
                   )}
@@ -152,9 +220,9 @@ const IceCalculator = () => {
               <div className="p-4 bg-ice-50 rounded-lg border border-ice-100">
                 <h4 className="font-medium text-ice-700 mb-2">¿Sabías que...?</h4>
                 <p className="text-sm text-gray-600">
-                  Para conservar mejor el hielo, mantenlo en un lugar fresco y seco, 
-                  alejado de la luz solar directa. Si necesitas mantenerlo durante varias horas, 
-                  utiliza conservadores de poliestireno o hieleras de alta calidad.
+                  Nuestras barras de hielo pesan 66kg (1m × 0.4m × 0.18m) y son ideales para enfriar 
+                  grandes cantidades de bebidas. Para cerveza, se recomienda cubrirlas con hielo 
+                  al 50-75% del volumen del envase para un enfriamiento óptimo.
                 </p>
               </div>
             </CardContent>
