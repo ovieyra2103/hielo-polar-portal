@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Info, Calculator, Beer } from "lucide-react";
+import { Info, Calculator, Beer, Sparkles } from "lucide-react";
 
 const eventTypes = [
   { id: "party", label: "Fiesta", kgPerPerson: 0.5 },
@@ -81,18 +81,43 @@ const CalculadoraPage = () => {
   return (
     <Layout>
       {/* Hero section */}
-      <section className="relative py-20 bg-ice-700">
+      <section className="relative py-24 bg-gradient-to-br from-arctic via-glacial to-arctic overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+        
         <div className="container relative z-10 text-white">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Calculadora de Hielo</h1>
-            <div className="h-1 w-20 bg-white mt-4 mb-8 rounded-full" />
-            <p className="text-xl">
-              Calcula fácilmente la cantidad de hielo que necesitarás para tu evento.
-              Incluye cálculos específicos para cervezas y diferentes tipos de eventos.
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+              <Calculator className="w-4 h-4" />
+              <span className="text-sm font-medium">Herramienta Profesional</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              Calculadora de Hielo
+              <span className="block mt-2 text-white/90">Inteligente y Precisa</span>
+            </h1>
+            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Calcula la cantidad exacta de hielo para tu evento en segundos.
+              <span className="block mt-2 font-semibold">¡Incluye cálculos específicos para cerveza y diferentes tipos de eventos!</span>
             </p>
+            <div className="flex flex-wrap gap-4 justify-center text-sm">
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <Sparkles className="w-4 h-4" />
+                <span>Resultados Instantáneos</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <Info className="w-4 h-4" />
+                <span>Recomendaciones Personalizadas</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full">
+                <Beer className="w-4 h-4" />
+                <span>Cálculo de Cerveza</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMTVMNDUgNDVNMTUgNDVMNDUgMTUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==')]"></div>
       </section>
 
       <section className="py-16">
@@ -252,17 +277,43 @@ const CalculadoraPage = () => {
               </CardContent>
             </Card>
             
-            <div className="mt-12 bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-ice-700 mb-4">¿Necesitas más ayuda?</h3>
-              <p className="text-gray-600 mb-6">
-                Si tienes alguna duda sobre la cantidad de hielo que necesitas para tu evento
-                o negocio, no dudes en contactarnos. Estaremos encantados de asesorarte con 
-                cálculos específicos para tus necesidades.
-              </p>
-              <div className="flex justify-center">
-                <Button asChild className="bg-ice-600 hover:bg-ice-700">
-                  <a href="/contacto">Contáctanos</a>
-                </Button>
+            {/* CTA Section */}
+            <div className="mt-12 relative overflow-hidden rounded-2xl bg-gradient-to-br from-arctic via-glacial to-arctic p-8 text-white">
+              <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+              <div className="relative text-center">
+                <Sparkles className="w-12 h-12 mx-auto mb-4 animate-pulse" />
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">¿Necesitas Asesoría Personalizada?</h3>
+                <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+                  Nuestro equipo de expertos está listo para ayudarte a calcular la cantidad exacta
+                  de hielo para tu evento o negocio. 
+                  <span className="block mt-2 font-semibold">¡Sin compromiso y totalmente gratis!</span>
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    asChild 
+                    size="lg"
+                    className="bg-white text-arctic hover:bg-white/90 font-semibold shadow-lg hover:shadow-xl transition-all"
+                  >
+                    <a href="/contacto">
+                      <Calculator className="w-5 h-5 mr-2" />
+                      Solicitar Asesoría Gratis
+                    </a>
+                  </Button>
+                  <Button 
+                    asChild 
+                    size="lg"
+                    variant="outline"
+                    className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold"
+                  >
+                    <a 
+                      href="https://wa.me/524431234567?text=Hola! Necesito ayuda con el cálculo de hielo para mi evento"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      📱 WhatsApp Directo
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
