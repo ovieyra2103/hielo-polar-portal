@@ -4,16 +4,20 @@ import { Link } from "react-router-dom";
 import { Phone, MessageSquare, Calendar, Clock } from "lucide-react";
 
 const Cta = () => {
-  return <section className="py-24 bg-ice-700 text-white relative overflow-hidden">
+  return <section className="py-24 bg-gradient-to-br from-primary via-primary to-accent text-white relative overflow-hidden">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMTVMNDUgNDVNMTUgNDVMNDUgMTUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==')]"></div>
       
       <div className="container relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">¡No te quedes sin hielo! Pide hoy mismo.</h2>
-            <p className="text-xl mb-6 text-ice-100">
-              Ofrecemos precios especiales para mayoristas y entregas a domicilio para bolsas de hielo.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Tu Pedido en <span className="text-accent">1 Clic</span><br />
+              Entrega el Mismo Día
+            </h2>
+            <p className="text-xl mb-6 text-white/90 leading-relaxed">
+              Precios mayoristas exclusivos y logística express para tu negocio. 
+              Mantén la operación sin interrupciones.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">

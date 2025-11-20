@@ -5,35 +5,46 @@
 
 @layer base {
   :root {
-    --background: 210 100% 98%;
-    --foreground: 222.2 84% 4.9%;
+    /* Paleta Moderna: Frío Extremo + Pureza + Tecnología */
+    --background: 210 100% 99%;
+    --foreground: 215 25% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 15%;
 
-    --primary: 201 100% 45%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Azul Ártico Profundo - Confianza y frescura */
+    --primary: 200 95% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 195 83% 95%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Cian Glacial - Pureza y tecnología */
+    --secondary: 190 100% 88%;
+    --secondary-foreground: 200 90% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted: Gris Plateado - Modernidad */
+    --muted: 210 30% 96%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Azul Hielo Brillante - CTAs y destacados */
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 201 100% 45%;
+    --border: 210 25% 90%;
+    --input: 210 25% 90%;
+    --ring: 200 95% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Variables personalizadas para efectos premium */
+    --gradient-ice: linear-gradient(135deg, hsl(195, 100%, 50%), hsl(200, 95%, 42%));
+    --gradient-frost: linear-gradient(180deg, hsl(190, 100%, 98%), hsl(190, 100%, 88%));
+    --shadow-ice: 0 10px 40px -10px hsl(200 95% 42% / 0.25);
+    --shadow-frost: 0 4px 20px -2px hsl(195 100% 50% / 0.15);
   }
 
   .dark {
@@ -76,15 +87,41 @@
     @apply bg-background text-foreground;
   }
 
+  /* Componentes Premium */
   .ice-card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden border border-ice-100 hover:shadow-lg transition-shadow duration-300;
+    @apply bg-white rounded-xl shadow-lg overflow-hidden border border-border hover:shadow-2xl transition-all duration-300 hover:-translate-y-1;
   }
 
   .shimmer {
-    @apply animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent bg-[length:200%_100%];
+    @apply animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent bg-[length:200%_100%];
   }
 
   .frost-bg {
-    @apply bg-gradient-to-br from-blue-50 to-white backdrop-blur-sm;
+    @apply bg-gradient-to-br from-secondary to-white backdrop-blur-sm;
+  }
+
+  .ice-gradient {
+    background: var(--gradient-ice);
+  }
+
+  .frost-gradient {
+    background: var(--gradient-frost);
+  }
+
+  .shadow-ice {
+    box-shadow: var(--shadow-ice);
+  }
+
+  .shadow-frost {
+    box-shadow: var(--shadow-frost);
+  }
+
+  /* Efectos de frío */
+  .glow-ice {
+    box-shadow: 0 0 30px hsl(195 100% 50% / 0.3), 0 0 60px hsl(195 100% 50% / 0.15);
+  }
+
+  .text-gradient-ice {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
   }
 }

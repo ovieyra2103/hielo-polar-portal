@@ -41,33 +41,65 @@ const Hero = () => {
       
       {/* Content */}
       <div className="container relative h-full flex flex-col justify-center items-center text-center">
-        <div className="max-w-3xl">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            HIELO POLAR DEL CENTRO
+        <div className="max-w-4xl">
+          {/* Badge Superior */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6 animate-fade-in">
+            <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+            <span className="text-white text-sm font-medium">Servicio Premium en Guanajuato y Michoacán</span>
+          </div>
+
+          {/* H1 Orientado a Beneficios */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            Frescura Garantizada<br />
+            <span className="text-accent">Para Tu Negocio</span>
           </h1>
-          <p className="text-xl md:text-2xl text-white mb-8">
-            Líderes en producción y distribución de hielo de la más alta calidad
+
+          {/* Propuesta de Valor */}
+          <p className="text-xl md:text-2xl text-white/90 mb-4 max-w-2xl mx-auto">
+            Hielo 100% purificado con entrega puntual. Mantén tus bebidas frías y tu negocio en marcha.
           </p>
+          
+          <p className="text-base md:text-lg text-white/75 mb-10">
+            ✓ Pureza cristalina ✓ Logística infalible ✓ Precios mayoristas
+          </p>
+
+          {/* CTAs Premium */}
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
               asChild
               size="lg"
-              className="bg-white text-ice-700 hover:bg-ice-100 hover:text-ice-800 border-2 border-white"
+              className="bg-accent text-white hover:bg-accent/90 border-2 border-accent shadow-frost text-lg px-8 py-6 glow-ice"
             >
-              <Link to="/productos">
-                Nuestros Productos
+              <Link to="/contacto">
+                Cotiza Ahora - Entrega Inmediata
               </Link>
             </Button>
             <Button 
               asChild
               variant="outline" 
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-ice-700"
+              className="border-2 border-white text-white hover:bg-white hover:text-primary backdrop-blur-sm bg-white/10 text-lg px-8 py-6"
             >
-              <Link to="/nosotros">
-                Conócenos
+              <Link to="/productos">
+                Ver Productos
               </Link>
             </Button>
+          </div>
+
+          {/* Prueba Social */}
+          <div className="mt-12 flex flex-wrap justify-center items-center gap-6 text-white/80 text-sm">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-accent border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-primary border-2 border-white"></div>
+                <div className="w-8 h-8 rounded-full bg-accent/80 border-2 border-white"></div>
+              </div>
+              <span>+500 clientes confían en nosotros</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-2xl">⭐</span>
+              <span>4.9/5 en satisfacción</span>
+            </div>
           </div>
         </div>
       </div>
