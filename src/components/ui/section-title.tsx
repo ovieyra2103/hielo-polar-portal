@@ -20,15 +20,15 @@ export function SectionTitle({
       center && "text-center",
       className
     )}>
-      <h2 className="text-3xl md:text-4xl font-bold text-ice-700 mb-3">
+      <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-lg text-ice-600">
+        <p className="text-lg text-muted-foreground">
           {subtitle}
         </p>
       )}
-      <div className="h-1 w-20 bg-ice-500 mt-4 rounded-full" />
+      <div className="h-1 w-20 bg-accent mt-4 rounded-full mx-auto" style={center ? {} : {marginLeft: 0}} />
     </div>
   );
 }
